@@ -1,0 +1,7 @@
+Harry potter quiz app
+
+1 What kind of animal was Harry Potter's enchanted pet? : An owl.
+2 What was Harry's patronus? : A stag
+3 What was Snape's patronus? : A doe
+4 Who guards the prison of Azkaban? : Dementors
+5 What fictional race is Hagrid? :Half-Giant
