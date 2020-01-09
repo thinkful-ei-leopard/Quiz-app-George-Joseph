@@ -12,7 +12,10 @@ const store = {
           'rat',
           'cat'
         ],
-        correctAnswer: 'owl'
+        correctAnswer: 'owl',
+        image: 'owl.jpg',
+        alt: 'snowy owl Hedwig',
+        explanation: 'Harry Potter\'s pet was an owl named Hedwig'
       },
       {
         question: 'What was Harry\'s patronus?',
@@ -22,7 +25,10 @@ const store = {
           'rhino',
           'rat'
         ],
-        correctAnswer: 'stag'
+        correctAnswer: 'stag',
+        image: 'stag.jpg',
+        alt: 'Stag patronus',
+        explanation: 'Harry Potter had a stag as his patronus'
       }
       {
         question: 'What was Snape\'s patronus?',
@@ -32,7 +38,10 @@ const store = {
           'rat',
           'doe'
         ],
-        correctAnswer: 'doe'
+        correctAnswer: 'doe',
+        image: 'doe.jpg',
+        alt: 'Doe patronus',
+        explanation: 'His patronus is a doe, much like Harry\'s mother\'s patronus'
       },
       {
         question: 'What fictional race is Hagrid?',
@@ -42,7 +51,10 @@ const store = {
           'giant',
           'half-giant'
         ],
-        correctAnswer: 'half-giant'
+        correctAnswer: 'half-giant',
+        image: 'hagrid.jpg',
+        alt: 'Hagrid the groundskeeper',
+        explanation: 'Hagrid is a half-giant. His mother is a giant and his father is human'
       },
       {
         question: 'Who Guarded Azkaban?',
@@ -52,7 +64,10 @@ const store = {
           'azkban dragons',
           'ghost'
         ],
-        correctAnswer: 'dementors'
+        correctAnswer: 'dementors',
+        image: 'dementor.jpg',
+        alt: 'The soul sucking Dementor; guardian of Azkaban',
+        explanation: 'The soul sucking Dementor; guardian of Azkaban'
       },
     ],
     questionNumber: 0,
