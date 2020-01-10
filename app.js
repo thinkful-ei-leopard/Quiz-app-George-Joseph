@@ -139,6 +139,9 @@ function handleSubmitButton(){
     let checkedValue = myRadio.filter(':checked').val();
     if (checkedValue === store.questions[store.questionNumber].correctAnswer){
       console.log('correct')
+    
+    } else {
+      console.log('incorrect')
     }
     // if (checkedValue === store.questions[store.questionNumber].correctAnswer){
     //   alert('CORRRECT');
