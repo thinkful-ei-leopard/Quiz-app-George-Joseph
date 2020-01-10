@@ -73,7 +73,7 @@ const store = {
     },
   ],
   questionNumber: 0,
-  score: 3,
+  score: 0,
   quizStarted: false
     
 };
@@ -91,19 +91,19 @@ function renderQuizQuestions(){
   return `<section class='quizContent'>
   <h1>Harry Potter Quiz</h1>
   <p>question `+store.questionNumber+` of 5 </p>
-  <p label="question">`+store.questions[store.questionNumber].question+`</p>
+  <p label="question">`+store.questions[store.questionNumber - 1 ].question+`</p>
   <form id='quiz'>
-      <input type="radio" value="`+store.questions[store.questionNumber].answers[0]+`"  name="choices" id="choice-first">
-      <label for="choice-first">`+store.questions[store.questionNumber].answers[0]+`</label>
+      <input type="radio" value="`+store.questions[store.questionNumber - 1].answers[0]+`"  name="choices" id="choice-first">
+      <label for="choice-first">`+store.questions[store.questionNumber -1].answers[0]+`</label>
       
-      <input type="radio" value="`+store.questions[store.questionNumber].answers[1]+`" name="choices" id="choice-second">
-      <label for="choice-second">`+store.questions[store.questionNumber].answers[1]+`</label>
+      <input type="radio" value="`+store.questions[store.questionNumber -1].answers[1]+`" name="choices" id="choice-second">
+      <label for="choice-second">`+store.questions[store.questionNumber -1].answers[1]+`</label>
 
-      <input type="radio" value="`+store.questions[store.questionNumber].answers[2]+`"  name="choices" id="choice-third">
-      <label for="choice-third">`+store.questions[store.questionNumber].answers[2]+`</label>
+      <input type="radio" value="`+store.questions[store.questionNumber -1].answers[2]+`"  name="choices" id="choice-third">
+      <label for="choice-third">`+store.questions[store.questionNumber -1].answers[2]+`</label>
       
-      <input type="radio" value="`+store.questions[store.questionNumber].answers[3]+`" name="choices" id="choice-fourth">
-      <label for="choice-fourth">`+store.questions[store.questionNumber].answers[3]+`</label>
+      <input type="radio" value="`+store.questions[store.questionNumber -1].answers[3]+`" name="choices" id="choice-fourth">
+      <label for="choice-fourth">`+store.questions[store.questionNumber -1].answers[3]+`</label>
   </form>
   <form>
       <button class='checkAnswer' type='Submit'>Check Answer</button>
@@ -111,10 +111,34 @@ function renderQuizQuestions(){
   
 </section>`;
 }
+
+function renderCorrect() {
+  return `<section class='quizContent'>
+  <h1>Harry Potter Quiz</h1>
+  <p>Correct</p>
+  <p>You have  correct out of 5 </p>
+  <img src='' alt=''>
+  <form>
+      <button type='submit'>Next Question</button>
+  </form>
+</section>`;
+
+}
+
+function loadCorrect() {
+  $('main').html(renderCorrect());
+}
+
+// function renderNextQuestion(){
+
+// }
+
+
 function loadFirstPage() {
   
   $('main').html(renderFirstPage());
 }
+
 function loadFirstQuestion() {
   $('main').html(renderQuizQuestions());
 }
@@ -122,7 +146,7 @@ function loadFirstQuestion() {
 function handleStartButton(){
   
   $('main').on('click',  '.start', event => {
-    store.questionNumber = 0;
+    store.questionNumber = 1;
     loadFirstQuestion();
   }
   ); 
@@ -137,11 +161,12 @@ function handleSubmitButton(){
     event.preventDefault();
     let myRadio = $('input[name=choices]')
     let checkedValue = myRadio.filter(':checked').val();
-    if (checkedValue === store.questions[store.questionNumber].correctAnswer){
-      console.log('correct')
+    if (checkedValue === store.questions[store.questionNumber -1].correctAnswer){
+      store.score ++;
+      loadCorrect();
     
     } else {
-      console.log('incorrect')
+      console.log('incorrect');
     }
     // if (checkedValue === store.questions[store.questionNumber].correctAnswer){
     //   alert('CORRRECT');
@@ -197,6 +222,8 @@ function runQuiz(){
   resetScore();
   questionTracker();
   loadQuestions();
+  renderCorrect();
+
 }
 
 $(runQuiz);
