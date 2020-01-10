@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /**
  * Example store structure
@@ -109,7 +109,7 @@ function renderQuizQuestions(){
       <button class='checkAnswer' type='Submit'>Check Answer</button>
   </form>
   
-</section>`
+</section>`;
 }
 function loadFirstPage() {
   
@@ -123,7 +123,7 @@ function handleStartButton(){
   
   $('main').on('click',  '.start', event => {
     store.questionNumber = 0;
-    loadFirstQuestion()
+    loadFirstQuestion();
   }
   ); 
 
@@ -133,8 +133,11 @@ function handleStartButton(){
 
 //user should be able to select radio button then click submit 
 function handleSubmitButton(){
-  $('body').on('click', '.checkAnswer', event =>{
-    alert("I got it working!");
+  $('main').on('click', '.checkAnswer', event =>{
+    event.preventDefault();
+    if ($('input[checked]').val()=== store.questions[store.questionNumber].correctAnswer){
+      alert('CORRRECT');
+    }
   }
   );
 
@@ -166,20 +169,26 @@ function resetScore(){
 resetScore();
 
 function questionTracker() {
-  store.questionNumber++
+  store.questionNumber++;
   //tracking which question user is on within STORE object questino arrray
   //each time button is pressed, tracker ++ until it reaches final question. 
 }
   
 function loadQuestions() {
   //based on where tracker is by using questionTracker()
-  $(main).html(questionTracker());
+  $('main').html(questionTracker());
 }
 
 function runQuiz(){
   loadFirstPage();
   handleStartButton();
   handleSubmitButton();
+  scoreCalculator();
+  handleNextButton();
+  handleRestartButton();
+  resetScore();
+  questionTracker();
+  loadQuestions();
 }
 
 $(runQuiz);
