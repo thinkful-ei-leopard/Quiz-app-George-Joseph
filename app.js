@@ -73,7 +73,8 @@ const store = {
     },
   ],
   questionNumber: 0,
-  score: 3
+  score: 3,
+  quizStarted: false
     
 };
 
@@ -86,16 +87,45 @@ function renderFirstPage(){
   return startPage;
 
 }
+function renderQuizQuestions(){
+  return `<section class='quizContent'>
+  <h1>Harry Potter Quiz</h1>
+  <p>question `+store.questionNumber+` of 5 </p>
+  <p label="question">`+store.questions[store.questionNumber].question+`</p>
+  <form>
+      <input type="radio" value="first"  name="choices" id="choice-first">
+      <label for="choice-first">`+store.questions[store.questionNumber].answers[0]+`</label>
+      
+      <input type="radio" value="second" name="choices" id="choice-second">
+      <label for="choice-second">`+store.questions[store.questionNumber].answers[1]+`</label>
+
+      <input type="radio" value="third"  name="choices" id="choice-third">
+      <label for="choice-third">`+store.questions[store.questionNumber].answers[2]+`</label>
+      
+      <input type="radio" value="fourth" name="choices" id="choice-fourth">
+      <label for="choice-fourth">`+store.questions[store.questionNumber].answers[3]+`</label>
+  </form>
+  <form>
+      <button class='checkAnswer' type='Submit'>Check Answer</button>
+  </form>
+  
+</section>`
+}
 function loadFirstPage() {
   
   $('main').html(renderFirstPage());
+}
+function loadFirstQuestion() {
+  $('main').html(renderQuizQuestions());
 }
 
 function handleStartButton(){
   
   $('main').on('click',  '.start', event => {
-    console.log('button clicked');
-  }); 
+    store.questionNumber = 0;
+    loadFirstQuestion()
+  }
+  ); 
 
 }
 
@@ -103,6 +133,10 @@ function handleStartButton(){
 
 //user should be able to select radio button then click submit 
 function handleSubmitButton(){
+  $('body').on('click', '.checkAnswer', event =>{
+    alert("I got it working!");
+  }
+  );
 
 }
 
@@ -132,8 +166,8 @@ function resetScore(){
 resetScore();
 
 function questionTracker() {
-
-  let tracker = 0; //tracking which question user is on within STORE object questino arrray
+  store.questionNumber++
+  //tracking which question user is on within STORE object questino arrray
   //each time button is pressed, tracker ++ until it reaches final question. 
 }
   
@@ -145,6 +179,7 @@ function loadQuestions() {
 function runQuiz(){
   loadFirstPage();
   handleStartButton();
+  handleSubmitButton();
 }
 
 $(runQuiz);
