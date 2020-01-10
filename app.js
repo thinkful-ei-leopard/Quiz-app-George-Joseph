@@ -78,12 +78,17 @@ const store = {
 };
 
 //user should be able to start quiz by pressing start quiz
-function loadFirstPage() {
+function renderFirstPage(){
   let startPage = `<section class='quizContent'>
   <h1>Harry Potter Quiz</h1>
       <button type='button' class='start'>Start Game</button>
 </section>`;
-  $('main').html(startPage);
+  return startPage;
+
+}
+function loadFirstPage() {
+  
+  $('main').html(renderFirstPage());
 }
 
 function handleStartButton(){
