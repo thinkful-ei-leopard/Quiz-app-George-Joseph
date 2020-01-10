@@ -92,17 +92,17 @@ function renderQuizQuestions(){
   <h1>Harry Potter Quiz</h1>
   <p>question `+store.questionNumber+` of 5 </p>
   <p label="question">`+store.questions[store.questionNumber].question+`</p>
-  <form>
-      <input type="radio" value="first"  name="choices" id="choice-first">
+  <form id='quiz'>
+      <input type="radio" value="`+store.questions[store.questionNumber].answers[0]+`"  name="choices" id="choice-first">
       <label for="choice-first">`+store.questions[store.questionNumber].answers[0]+`</label>
       
-      <input type="radio" value="second" name="choices" id="choice-second">
+      <input type="radio" value="`+store.questions[store.questionNumber].answers[1]+`" name="choices" id="choice-second">
       <label for="choice-second">`+store.questions[store.questionNumber].answers[1]+`</label>
 
-      <input type="radio" value="third"  name="choices" id="choice-third">
+      <input type="radio" value="`+store.questions[store.questionNumber].answers[2]+`"  name="choices" id="choice-third">
       <label for="choice-third">`+store.questions[store.questionNumber].answers[2]+`</label>
       
-      <input type="radio" value="fourth" name="choices" id="choice-fourth">
+      <input type="radio" value="`+store.questions[store.questionNumber].answers[3]+`" name="choices" id="choice-fourth">
       <label for="choice-fourth">`+store.questions[store.questionNumber].answers[3]+`</label>
   </form>
   <form>
@@ -135,9 +135,14 @@ function handleStartButton(){
 function handleSubmitButton(){
   $('main').on('click', '.checkAnswer', event =>{
     event.preventDefault();
-    if ($('input[checked]').val()=== store.questions[store.questionNumber].correctAnswer){
-      alert('CORRRECT');
+    let myRadio = $('input[name=choices]')
+    let checkedValue = myRadio.filter(':checked').val();
+    if (checkedValue === store.questions[store.questionNumber].correctAnswer){
+      console.log('correct')
     }
+    // if (checkedValue === store.questions[store.questionNumber].correctAnswer){
+    //   alert('CORRRECT');
+    // }
   }
   );
 
