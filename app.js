@@ -116,13 +116,42 @@ function renderCorrect() {
   return `<section class='quizContent'>
   <h1>Harry Potter Quiz</h1>
   <p>Correct</p>
-  <p>You have  correct out of 5 </p>
-  <img src='' alt=''>
-  <form>
-      <button type='submit'>Next Question</button>
-  </form>
+  <p>You have`+store.score+` correct out of 5 </p>
+  <img src='`+store.questions[store.questionNumber -1 ].image+`' alt='`+store.questions[store.questionNumber -1].alt+`'>
+      <button type='submit'  class='nextQuestion'>Next Question</button>
 </section>`;
 
+}
+
+function renderIncorrect () {
+  return `<section class='quizContent'>
+  <h1>Harry Potter Quiz</h1>
+  <p>Incorrect</p>
+  <p>You have`+store.score+` correct out of 5 </p>
+  <img src='`+store.questions[store.questionNumber - 1 ].image+`' alt='`+store.questions[store.questionNumber - 1 ].alt+`'>
+  <p>`+store.questions[store.questionNumber - 1 ].explanation+`</p>
+      <button type='submit' class='nextQuestion'>Next Question</button>
+</section>`;
+}
+
+function renderFinalPage() {
+  return `<section class='quizContent'>
+  <h1>Harry Potter Quiz</h1>
+  <p>Final Result</p>
+  <p>You have `+store.score+` correct out of 5</p>
+  <img src='hogwarts.jpg' alt='Hogwarts Castle at night'>
+  <form>
+      <button type='submit' class='restartGame'>Restart Game</button>
+  </form>
+</section>`;
+}
+
+function loadFinalPage() {
+  $('main').html(renderFinalPage());
+}
+
+function loadIncorrect (){
+  $('main').html(renderIncorrect());
 }
 
 function loadCorrect() {
@@ -162,11 +191,11 @@ function handleSubmitButton(){
     let myRadio = $('input[name=choices]')
     let checkedValue = myRadio.filter(':checked').val();
     if (checkedValue === store.questions[store.questionNumber -1].correctAnswer){
-      store.score ++;
+      scoreCalculator();
       loadCorrect();
     
     } else {
-      console.log('incorrect');
+      loadIncorrect();
     }
     // if (checkedValue === store.questions[store.questionNumber].correctAnswer){
     //   alert('CORRRECT');
@@ -178,12 +207,20 @@ function handleSubmitButton(){
 
 //user should be able to see the result of their answers and their current score
 function scoreCalculator(){
-
+  store.score ++;
 }
  
 
 //user should be able to go to next question by clicking next question button
 function handleNextButton() {
+  $('main').on('click', '.nextQuestion', event =>{
+    if (store.questionNumber === store.questions.length ){
+      loadFinalPage();
+    } else {
+      questionTracker();
+      loadFirstQuestion();
+    }
+  });
 
 }
 
