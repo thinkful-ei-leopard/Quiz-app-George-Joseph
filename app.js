@@ -127,7 +127,7 @@ function renderIncorrect () {
   return `<section class='quizContent'>
   <h1>Harry Potter Quiz</h1>
   <p>Incorrect</p>
-  <p>You have`+store.score+` correct out of 5 </p>
+  <p>You have `+store.score+` correct out of 5 </p>
   <img src='`+store.questions[store.questionNumber - 1 ].image+`' alt='`+store.questions[store.questionNumber - 1 ].alt+`'>
   <p>`+store.questions[store.questionNumber - 1 ].explanation+`</p>
       <button type='submit' class='nextQuestion'>Next Question</button>
