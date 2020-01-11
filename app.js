@@ -240,7 +240,7 @@ resetScore();
 
 function questionTracker() {
   store.questionNumber++;
-  //tracking which question user is on within STORE object questino arrray
+  //tracking which question user is on within STORE object questinon array
   //each time button is pressed, tracker ++ until it reaches final question. 
 }
   
