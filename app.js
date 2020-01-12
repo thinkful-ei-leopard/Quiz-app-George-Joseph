@@ -229,7 +229,10 @@ function handleNextButton() {
 
 //user shoud be able to restart the quiz with the restart button
 function handleRestartButton(){
-
+$('main').on('click', '.restartGame', event =>{
+  resetScore();
+  }
+})
 }
 
 function resetScore(){
