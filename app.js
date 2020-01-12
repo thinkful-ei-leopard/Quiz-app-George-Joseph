@@ -230,10 +230,17 @@ function handleNextButton() {
 //user shoud be able to restart the quiz with the restart button
 function handleRestartButton(){
 $('main').on('click', '.restartGame', event =>{
-  resetScore();
+  if store.score !== 0;{
+    resetScore();
+
   }
-})
+
+  }
+  });
 }
+
+
+
 
 function resetScore(){
   store.score  = 0;
