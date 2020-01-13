@@ -229,24 +229,14 @@ function handleNextButton() {
 
 //user shoud be able to restart the quiz with the restart button
 function handleRestartButton(){
-<<<<<<< HEAD
   $('main').on('click', '.restartGame', event => {
     store.questionNumber = 0;
     store.score = 0;
     loadFirstPage();
-
-  });
-=======
-$('main').on('click', '.restartGame', event =>{
-  if store.score !== 0;{
-    resetScore();
->>>>>>> 1c7fd08dc7d5bffac9e6e9ead210ad5f959c1413
-
-  }
-
-  }
+  
   });
 }
+
 
 
 
@@ -255,7 +245,7 @@ function resetScore(){
   store.score  = 0;
   console.log(store.score);
 }
-resetScore();
+
 
 function questionTracker() {
   store.questionNumber++;
@@ -277,7 +267,6 @@ function runQuiz(){
   handleRestartButton();
   resetScore();
   questionTracker();
-  loadQuestions();
   renderCorrect();
 
 }
@@ -295,4 +284,4 @@ $(runQuiz);
    *
    * You may add attributes (classes, ids, etc) to the existing HTML elements, or link stylesheets or additional scripts if necessary
    *
-   */
+**/
