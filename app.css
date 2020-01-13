@@ -6,3 +6,38 @@
   * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
   *
 */
+
+* {box-sizing: border-box;}
+
+body {
+  background-image: url('page-background-shell\ -\ 2.png');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+}
+
+main {
+  position: relative;
+  background-color: white;
+  border-radius: 05%;
+  max-width: 50%;
+  margin: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+img {
+  max-width: 250px;
+  padding: 5px;
+}
+
+main > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

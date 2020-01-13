@@ -116,7 +116,7 @@ function renderCorrect() {
   return `<section class='quizContent'>
   <h1>Harry Potter Quiz</h1>
   <p>Correct</p>
-  <p>You have`+store.score+` correct out of 5 </p>
+  <p>You have `+store.score+` correct out of 5 </p>
   <img src='`+store.questions[store.questionNumber -1 ].image+`' alt='`+store.questions[store.questionNumber -1].alt+`'>
       <button type='submit'  class='nextQuestion'>Next Question</button>
 </section>`;
@@ -127,7 +127,7 @@ function renderIncorrect () {
   return `<section class='quizContent'>
   <h1>Harry Potter Quiz</h1>
   <p>Incorrect</p>
-  <p>You have`+store.score+` correct out of 5 </p>
+  <p>You have `+store.score+` correct out of 5 </p>
   <img src='`+store.questions[store.questionNumber - 1 ].image+`' alt='`+store.questions[store.questionNumber - 1 ].alt+`'>
   <p>`+store.questions[store.questionNumber - 1 ].explanation+`</p>
       <button type='submit' class='nextQuestion'>Next Question</button>
@@ -229,6 +229,12 @@ function handleNextButton() {
 
 //user shoud be able to restart the quiz with the restart button
 function handleRestartButton(){
+  $('main').on('click', '.restartGame', event => {
+    store.questionNumber = 0;
+    store.score = 0;
+    loadFirstPage();
+
+  });
 
 }
 
