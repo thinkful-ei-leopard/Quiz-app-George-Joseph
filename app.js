@@ -9,7 +9,7 @@ const store = {
     {
       question: 'What kind of animal was Harry Potter\'s enchanted pet?',
       answers: [
-        'owl',
+        'Owl',
         'stag',
         'rat',
         'cat'
@@ -61,9 +61,9 @@ const store = {
     {
       question: 'Who Guarded Azkaban?',
       answers:[
-        'united states military!',
-        'dementors',
-        'azkban dragons',
+        'United States Military!',
+        'Dementors',
+        'Azkban Dragons',
         'ghost'
       ],
       correctAnswer: 'dementors',
