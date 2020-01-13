@@ -61,9 +61,9 @@ const store = {
     {
       question: 'Who Guarded Azkaban?',
       answers:[
-        'United States Military!',
+        'United States!',
         'Dementors',
-        'Azkban Dragons',
+        'Dragons',
         'Ghost'
       ],
       correctAnswer: 'Dementors',
