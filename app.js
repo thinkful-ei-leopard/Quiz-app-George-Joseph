@@ -10,11 +10,11 @@ const store = {
       question: 'What kind of animal was Harry Potter\'s enchanted pet?',
       answers: [
         'Owl',
-        'stag',
-        'rat',
-        'cat'
+        'Stag',
+        'Rat',
+        'Cat'
       ],
-      correctAnswer: 'owl',
+      correctAnswer: 'Owl',
       image: 'owl.jpg',
       alt: 'snowy owl Hedwig',
       explanation: 'Harry Potter\'s pet was an owl named Hedwig'
@@ -22,12 +22,12 @@ const store = {
     {
       question: 'What was Harry\'s patronus?',
       answers: [
-        'stag',
-        'doe',
-        'rhino',
-        'rat'
+        'Stag',
+        'Doe',
+        'Rhino',
+        'Rat'
       ],
-      correctAnswer: 'stag',
+      correctAnswer: 'Stag',
       image: 'stag.jpg',
       alt: 'Stag patronus',
       explanation: 'Harry Potter had a stag as his patronus'
@@ -38,9 +38,9 @@ const store = {
         'owl',
         'stag',
         'rat',
-        'doe'
+        'Doe'
       ],
-      correctAnswer: 'doe',
+      correctAnswer: 'Doe',
       image: 'doe.jpg',
       alt: 'Doe patronus',
       explanation: 'His patronus is a doe, much like Harry\'s mother\'s patronus'
@@ -48,12 +48,12 @@ const store = {
     {
       question: 'What fictional race is Hagrid?',
       answers:[
-        'half-ogre',
-        'all man',
-        'giant',
-        'half-giant'
+        'Half-ogre',
+        'All man',
+        'Giant',
+        'Half-Giant'
       ],
-      correctAnswer: 'half-giant',
+      correctAnswer: 'Half-Giant',
       image: 'hagrid.jpg',
       alt: 'Hagrid the groundskeeper',
       explanation: 'Hagrid is a half-giant. His mother is a giant and his father is human'
@@ -64,9 +64,9 @@ const store = {
         'United States Military!',
         'Dementors',
         'Azkban Dragons',
-        'ghost'
+        'Ghost'
       ],
-      correctAnswer: 'dementors',
+      correctAnswer: 'Dementors',
       image: 'dementor.jpg',
       alt: 'The soul sucking Dementor; guardian of Azkaban',
       explanation: 'The soul sucking Dementor; guardian of Azkaban'

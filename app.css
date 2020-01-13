@@ -32,8 +32,8 @@ main {
 }
 
 img {
-  max-width: 250px;
-  padding: 5px;git
+  max-width: 200px;
+  padding: 0px;
 }
 
 main > * {
