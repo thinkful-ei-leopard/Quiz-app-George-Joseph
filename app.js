@@ -35,9 +35,9 @@ const store = {
     {
       question: 'What was Snape\'s patronus?',
       answers: [
-        'owl',
-        'stag',
-        'rat',
+        'Owl',
+        'Stag',
+        'Rat',
         'Doe'
       ],
       correctAnswer: 'Doe',
@@ -90,7 +90,7 @@ function renderFirstPage(){
 function renderQuizQuestions(){
   return `<section class='quizContent'>
   <h1>Harry Potter Quiz</h1>
-  <p>question `+store.questionNumber+` of 5 </p>
+  <p>Question `+store.questionNumber+` of 5 </p>
   <p label="question">`+store.questions[store.questionNumber - 1 ].question+`</p>
   <form id='quiz'>
       <input type="radio" value="`+store.questions[store.questionNumber - 1].answers[0]+`"  name="choices" id="choice-first">
