@@ -82,7 +82,7 @@ const store = {
 function renderFirstPage(){
   let startPage = `<section class='quizContent'>
   <h1>Harry Potter Quiz</h1>
-      <button type='button' class='start'>Start Game</button>
+      <button type='button' class='start' aria-label='Start'>Start Game</button>
 </section>`;
   return startPage;
 
@@ -91,22 +91,24 @@ function renderQuizQuestions(){
   return `<section class='quizContent'>
   <h1>Harry Potter Quiz</h1>
   <p>Question `+store.questionNumber+` of 5 </p>
-  <p label="question">`+store.questions[store.questionNumber - 1 ].question+`</p>
+  
   <form id='quiz'>
-      <input type="radio" value="`+store.questions[store.questionNumber - 1].answers[0]+`"  name="choices" id="choice-first">
-      <label for="choice-first">`+store.questions[store.questionNumber -1].answers[0]+`</label>
+      <fieldset>
+       <legend label="question">`+store.questions[store.questionNumber - 1 ].question+`</legend>
+       <input type="radio" value="`+store.questions[store.questionNumber - 1].answers[0]+`"  name="choices" id="choice-first" >
+       <label for="choice-first">`+store.questions[store.questionNumber -1].answers[0]+`</label>
       
-      <input type="radio" value="`+store.questions[store.questionNumber -1].answers[1]+`" name="choices" id="choice-second">
-      <label for="choice-second">`+store.questions[store.questionNumber -1].answers[1]+`</label>
+       <input type="radio" value="`+store.questions[store.questionNumber -1].answers[1]+`" name="choices" id="choice-second" >
+       <label for="choice-second">`+store.questions[store.questionNumber -1].answers[1]+`</label>
 
-      <input type="radio" value="`+store.questions[store.questionNumber -1].answers[2]+`"  name="choices" id="choice-third">
-      <label for="choice-third">`+store.questions[store.questionNumber -1].answers[2]+`</label>
+        <input type="radio" value="`+store.questions[store.questionNumber -1].answers[2]+`"  name="choices" id="choice-third" >
+       <label for="choice-third">`+store.questions[store.questionNumber -1].answers[2]+`</label>
       
-      <input type="radio" value="`+store.questions[store.questionNumber -1].answers[3]+`" name="choices" id="choice-fourth">
-      <label for="choice-fourth">`+store.questions[store.questionNumber -1].answers[3]+`</label>
-  </form>
-  <form>
-      <button class='checkAnswer' type='Submit'>Check Answer</button>
+       <input type="radio" value="`+store.questions[store.questionNumber -1].answers[3]+`" name="choices" id="choice-fourth" >
+       <label for="choice-fourth">`+store.questions[store.questionNumber -1].answers[3]+`</label>
+        <br>
+        <button class='checkAnswer' type='Submit' required>Check Answer</button>
+      </fieldset>
   </form>
   
 </section>`;
@@ -190,16 +192,16 @@ function handleSubmitButton(){
     event.preventDefault();
     let myRadio = $('input[name=choices]')
     let checkedValue = myRadio.filter(':checked').val();
-    if (checkedValue === store.questions[store.questionNumber -1].correctAnswer){
+    if (checkedValue === undefined){
+      alert('please select an answer');
+    } else if (checkedValue === store.questions[store.questionNumber -1].correctAnswer){
       scoreCalculator();
       loadCorrect();
     
     } else {
       loadIncorrect();
     }
-    // if (checkedValue === store.questions[store.questionNumber].correctAnswer){
-    //   alert('CORRRECT');
-    // }
+
   }
   );
 
@@ -273,15 +275,3 @@ function runQuiz(){
 
 $(runQuiz);
 
-/**
-   *
-   * Your app should include a render() function, that regenerates
-   * the view each time the store is updated. See your course
-   * material, consult your instructor, and reference the slides
-   * for more details.
-   *
-   * NO additional HTML elements should be added to the index.html file.
-   *
-   * You may add attributes (classes, ids, etc) to the existing HTML elements, or link stylesheets or additional scripts if necessary
-   *
-**/
